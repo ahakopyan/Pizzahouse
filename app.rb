@@ -21,7 +21,7 @@ post '/cart' do
 	# переменная orders_input для получения из Layout
 	orders_input = params[:orders]
 	# переменная которая используется во views 
-	@items = parse_orders_input orders_input
+	@items = parse_orders_input @orders_input
 
 	# для каждого элемента делаем запрос
 	@items.each do |item|
