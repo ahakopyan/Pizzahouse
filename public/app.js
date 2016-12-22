@@ -72,6 +72,10 @@ function something()
 
 	function cancel_order()
 	{
-		alert('cleaning!');
+		window.localStorage.clear();
+
+		update_orders_input();
+		update_orders_button();
+
 		return false; 
 	}
