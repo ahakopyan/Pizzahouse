@@ -26,12 +26,22 @@ post '/place_order' do
 end
 
 post '/cart' do
+
+	# получаем список параметров и разбираем (parse) их
+
 	# переменная orders_input для получения из Layout
 	@orders_input = params[:orders_input]
 	# переменная которая используется во views 
 	@items = parse_orders_input @orders_input
 
+# выводим сообщение о том, что корзина пуста пуста
+	if @items.length == 0
+		return erb :cart_is_empty
+	end
+
+	# выводим список продуктов в корзине
 	# для каждого элемента делаем запрос
+	
 	@items.each do |item|
 		# item - это у нас массив [id, cnt]
 		 item[0] = Product.find(item[0])
