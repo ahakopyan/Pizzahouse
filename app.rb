@@ -22,7 +22,7 @@ end
 
 post '/place_order' do
 	@order = Order.create params[:order]
-	erb "Thank you! Your order has been placed."
+	erb :order_placed
 end
 
 post '/cart' do
