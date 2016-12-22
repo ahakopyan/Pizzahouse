@@ -27,7 +27,7 @@ end
 
 post '/cart' do
 	# переменная orders_input для получения из Layout
-	@orders_input = params[:orders]
+	@orders_input = params[:orders_input]
 	# переменная которая используется во views 
 	@items = parse_orders_input @orders_input
 
